@@ -4,12 +4,12 @@ from aiogram import Bot, Dispatcher, types
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 TOKEN = "8650148089:AAEBZIxFU1mBgQbpoYuOi8KT37V_GER89Dg"
-ADMIN_ID = 8007670371# o'zingni Telegram ID
+ADMIN_ID = 8007670371
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
 
-# ================= DATABASE =================
+# ================= DB =================
 async def init_db():
     async with aiosqlite.connect("db.sqlite3") as db:
         await db.execute("""
@@ -77,7 +77,7 @@ async def click(call: types.CallbackQuery):
 
         await call.answer()
 
-# ================= SIMPLE ADMIN ADD =================
+# ================= ADMIN ADD =================
 user_state = {}
 
 @dp.message(commands=["add"])
